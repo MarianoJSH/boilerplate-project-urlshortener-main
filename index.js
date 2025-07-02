@@ -29,6 +29,10 @@ app.post("/api/shorturl", (req, res) => {
     return res.status(400).json({ error: "invalid url" });
   }
 
+  if (originalUrl.protocol !== "https:") {
+    return res.status(400).json({ error: "invalid url" });
+  }
+
   let existingShortUrl = null;
   for (const short in urlDatabase) {
     if (urlDatabase[short] === originalUrl) {
