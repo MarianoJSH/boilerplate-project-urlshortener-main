@@ -26,11 +26,7 @@ app.post("/api/shorturl", (req, res) => {
   const originalUrl = req.body.url;
 
   if (!validUrl.isWebUri(originalUrl)) {
-    return res.status(400).json({ error: "invalid url" });
-  }
-
-  if (originalUrl.protocol !== "https:") {
-    return res.status(400).json({ error: "invalid url" });
+    return res.json({ error: 'invalid url' });
   }
 
   let existingShortUrl = null;
