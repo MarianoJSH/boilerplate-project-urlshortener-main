@@ -7,6 +7,9 @@ const app = express();
 // Basic Configuration
 const port = process.env.PORT || 3000;
 
+const urlDatabase = {};
+let shortUrlCounter = 0; 
+
 app.use(cors());
 
 app.use(express.json());
